@@ -5,7 +5,6 @@ class TreeNode:
         self.parent = None
 
 
-
     def get_level(self):
         level = 0
         p = self.parent
