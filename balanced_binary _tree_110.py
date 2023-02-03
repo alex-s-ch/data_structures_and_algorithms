@@ -18,12 +18,18 @@ class Solution:
                 return [True, 0]
 
             left, right = dfs(root.left), dfs(root.right)
-            balanced = (left[0] and right[0] and abs(left[1] - right[1]) <= 1) # check if is the entire tree balanced
+            balanced = (left[0] and right[0] and abs(left[1] - right[1]) <= 1) # check if the entire tree is balanced
             return [balanced, 1 + max(left[1], right[1])]
 
         return dfs(root)[0] # return only boolean
 
-root = TreeNode([3,9,20,None,None,15,7])
+root = TreeNode(1,
+                TreeNode(2,
+                         TreeNode(3, None, None),
+                         TreeNode(3, TreeNode(4), TreeNode(4))),
+                TreeNode(2)
+                )
+
 solution = Solution()
 result = solution.isBalanced(root)
 print(result)
